@@ -1,5 +1,23 @@
-empty
+#include "holberton.h"
+#include <stdarg.h>
+/**
+*
+*
+*
+**/
 
-update
+int _printf(const char *format, ...)
+{
+	va_list arg;
+	unsigned int i;
 
-chris code
+	va_start(arg, format);
+
+	i = va_arg(arg, int);
+
+
+
+
+
+	va_end(arg);
+}
