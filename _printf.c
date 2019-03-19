@@ -12,6 +12,7 @@
 void print_c(va_list arg)
 {
 	int n = va_arg(arg, int);
+
 	write(1, &n, 1);
 }
 
@@ -34,16 +35,16 @@ void print_s(va_list arg)
 }
 
 /**
-* _printf - prints characters and strings
-* @format: the operators and string to be printed
-* Description - this function prints a string and chars
-* Return: the string length or -1
-**/
-
-int _printf(const char *format, ...)
+* printy - function that prints arguments
+* @format: the string
+* @arg: the arguments
+* Description - this function links operators to actions
+* Return: string length
+*
+*/
+int printy(const char *format, va_list arg)
 {
-	va_list arg;
-	int i, n;
+	int i = 0, n = 0;
 
 	pair pai[] = {
 		{'c', print_c},
@@ -51,15 +52,6 @@ int _printf(const char *format, ...)
 		{'\0', NULL}
 	};
 
-	va_start(arg, format);
-
-
-	if (format == NULL && *format == '\0')
-	{
-		return(-1);
-	}
-
-	i = 0;
 	while (format != NULL && *format != '\0')
 	{
 		n = 0;
@@ -85,6 +77,26 @@ int _printf(const char *format, ...)
 		format++;
 		i++;
 	}
+	return (i);
+}
+
+/**
+* _printf - prints characters and strings
+* @format: the operators and string to be printed
+* Description - this function prints a string and chars
+* Return: the string length or -1
+*/
+int _printf(const char *format, ...)
+{
+	va_list arg;
+	int i;
+
+	va_start(arg, format);
+	if (format == NULL && *format == '\0')
+	{
+		return (-1);
+	}
+	i = printy(format, arg);
 	va_end(arg);
-	return(i);
+	return (i);
 }
