@@ -23,7 +23,7 @@ void print_s(va_list arg)
 	write(1, a, n);
 }
 
-void print_per(va_list arg)
+void print_per()
 {
 	write(1, "%", 1);
 }
@@ -37,12 +37,12 @@ void print_per(va_list arg)
 int _printf(const char *format, ...)
 {
 	va_list arg;
-	int i;
+	int i, n;
 
 	pair pai[] = {
 		{'c', print_c},
 		{'s', print_s},
-		{'%', print_pre},
+		{'%', print_per},
 		{'\0', NULL}
 	};
 
@@ -51,16 +51,21 @@ int _printf(const char *format, ...)
 	while (format != NULL && format[i] != '\0')
 	{
 		n = 0;
-		while (pai[n].a != '\0')
+		if (format[i] == '%')
 		{
-			if (pai[n].a == format[i])
+			i++;
+			while (pai[n].a != '\0')
 			{
-				*pai[n].ptr(arg);
+				if (format[i] == pai[n].a)
+				{
+					pai[n].ptr(arg);
+				}
+				n++;
 			}
-			n++;
 		}
 		i++;
 	}
+	write(1, format, i * (sizeof(char *)));
 	va_end(arg);
 	return(1);
 }
