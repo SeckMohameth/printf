@@ -3,13 +3,24 @@
 #include <stdarg.h>
 #include "holberton.h"
 
-
+/**
+* print_c - prints a char
+* @arg: the character argument
+* Description - function prints a character argument
+* Return: void
+*/
 void print_c(va_list arg)
 {
 	int n = va_arg(arg, int);
 	write(1, &n, 1);
 }
 
+/**
+* print_s - prints a string
+* @arg: string to be printed
+* Description - this function print a string argument
+* Return: void
+*/
 void print_s(va_list arg)
 {
 	int n = 0;
@@ -22,15 +33,11 @@ void print_s(va_list arg)
 	write(1, a, n);
 }
 
-void print_per()
-{
-	write(1, "%", 1);
-}
-
 /**
-* print
-*
-*
+* _printf - prints characters and strings
+* @format: the operators and string to be printed
+* Description - this function prints a string and chars
+* Return: the string length or -1
 **/
 
 int _printf(const char *format, ...)
@@ -41,7 +48,6 @@ int _printf(const char *format, ...)
 	pair pai[] = {
 		{'c', print_c},
 		{'s', print_s},
-		{'%', print_per},
 		{'\0', NULL}
 	};
 
@@ -61,6 +67,9 @@ int _printf(const char *format, ...)
 		{
 			format++;
 			i++;
+			if (*format == '%')
+			{
+			}
 			while (pai[n].a != '\0')
 			{
 				if (*format == pai[n].a)
