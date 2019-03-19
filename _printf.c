@@ -19,7 +19,7 @@ void print_s(va_list arg)
 	{
 		n++;
 	}
-	n = (sizeof(char *) * n);
+	n = (sizeof(char) * n);
 	write(1, a, n);
 }
 
@@ -48,24 +48,29 @@ int _printf(const char *format, ...)
 
 	va_start(arg, format);
 
-	while (format != NULL && format[i] != '\0')
+	i = 0;
+	while (format != NULL && *format != '\0')
 	{
 		n = 0;
-		if (format[i] == '%')
+		if (*format == '%')
 		{
+			format++;
 			i++;
 			while (pai[n].a != '\0')
 			{
-				if (format[i] == pai[n].a)
+				if (*format == pai[n].a)
 				{
+					format++;
+					i++;
 					pai[n].ptr(arg);
 				}
 				n++;
 			}
 		}
+		write(1, format, sizeof(char));
+		format++;
 		i++;
 	}
-	write(1, format, i * (sizeof(char *)));
 	va_end(arg);
-	return(1);
+	return(i);
 }
