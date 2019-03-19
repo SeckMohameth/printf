@@ -19,7 +19,6 @@ void print_s(va_list arg)
 	{
 		n++;
 	}
-	n = (sizeof(char) * n);
 	write(1, a, n);
 }
 
@@ -47,6 +46,12 @@ int _printf(const char *format, ...)
 	};
 
 	va_start(arg, format);
+
+
+	if (format == NULL && *format == '\0')
+	{
+		return(-1);
+	}
 
 	i = 0;
 	while (format != NULL && *format != '\0')
