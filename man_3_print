@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .TH man "18 March 2019" "printf function"
 .SH
 .SH SYNOPSIS
@@ -8,6 +9,22 @@ nuseradd is high level shell program for adding users to LDAP server.  On Debian
 The nuseradd does not take any options. However, you can supply username.
 .SH SEE ALSO
 useradd(8), passwd(5), nuseradd.debian(8)
+=======
+.TH man 1 "18 March 2019" "printf function"
+.SH NAME
+_printf \- formatted output, our own version of printf. The function \fb\ \fIint print(const char *format, ...)\fR sends formatted output to stdout 
+.SH SYNOPSIS
+.B _printf
+\fb\ \fIformat\fR [arguments ...]
+.SH DESCRIPTION
+The \fB\ _printf \fR function formats and prints the arguments into the console. The function is used to print the "character, string, float, integer, octal, and hexadecimal values" onto the ouput screen.
+.P You don’t have to reproduce the buffer handling of the C library printf function
+.HP We didn’t have to reproduce the buffer handling of the C library printf function
+We didn’t have to handle the flag characters, field width, precision and the length modifiers
+.SH \fB\ format \fR is a character string and is composed of zero or more directives. Our goal for this function is to handle as many conversion specifiers for this project.
+.SH SEE ALSO
+printf(3), echo(1), sh(1), builtin(1)
+>>>>>>> master
 .SH BUGS
 No known bugs.
 .SH AUTHORS
