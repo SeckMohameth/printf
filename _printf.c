@@ -83,7 +83,6 @@ int printy(const char *format, va_list arg)
 		i++;
 	}
 	i--;
-	printf("%d/%d\n", add, i);
 	return (i);
 }
 
