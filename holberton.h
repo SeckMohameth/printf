@@ -9,8 +9,8 @@
 */
 struct pairing
 {
-        char a;
-        void (*ptr)();
+	char a;
+	void (*ptr)();
 };
 
 int _printf(const char *format, ...);
