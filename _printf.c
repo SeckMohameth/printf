@@ -9,11 +9,12 @@
 * Description - function prints a character argument
 * Return: void
 */
-void print_c(va_list arg)
+int print_c(va_list arg)
 {
 	int n = va_arg(arg, int);
 
 	write(1, &n, 1);
+	return (1);
 }
 
 /**
@@ -22,7 +23,7 @@ void print_c(va_list arg)
 * Description - this function print a string argument
 * Return: void
 */
-void print_s(va_list arg)
+int print_s(va_list arg)
 {
 	int n = 0;
 	char *a = va_arg(arg, char *);
@@ -32,6 +33,7 @@ void print_s(va_list arg)
 		n++;
 	}
 	write(1, a, n);
+	return (n);
 }
 
 /**
@@ -40,11 +42,10 @@ void print_s(va_list arg)
 * @arg: the arguments
 * Description - this function links operators to actions
 * Return: string length
-*
 */
 int printy(const char *format, va_list arg)
 {
-	int i = 0, n = 0;
+	int i = 0, n = 0, add = 0;
 
 	pair pai[] = {
 		{'c', print_c},
@@ -61,6 +62,7 @@ int printy(const char *format, va_list arg)
 			i++;
 			if (*format == '%')
 			{
+				i--;
 			}
 			while (pai[n].a != '\0')
 			{
@@ -68,7 +70,8 @@ int printy(const char *format, va_list arg)
 				{
 					format++;
 					i++;
-					pai[n].ptr(arg);
+					add = pai[n].ptr(arg);
+					i = add + i - 2;
 				}
 				n++;
 			}
@@ -77,6 +80,7 @@ int printy(const char *format, va_list arg)
 		format++;
 		i++;
 	}
+	i--;
 	return (i);
 }
 

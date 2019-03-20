@@ -10,12 +10,12 @@
 typedef struct pairing
 {
 	char a;
-	void (*ptr)();
+	int (*ptr)();
 }pair;
 
 int _printf(const char *format, ...);
-void print_c(va_list arg);
-void print_s(va_list arg);
+int print_c(va_list arg);
+int print_s(va_list arg);
 int printy(const char *format, va_list arg);
 
 #endif
