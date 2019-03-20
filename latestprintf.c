@@ -73,7 +73,7 @@ int printy(const char *format, va_list arg)
 					format++;
 					i++;
 					add = pai[n].ptr(arg);
-					i = add + i - 1;
+					i = add + i - 2;
 				}
 				n++;
 			}
@@ -82,6 +82,7 @@ int printy(const char *format, va_list arg)
 		format++;
 		i++;
 	}
+	i--;
 	return (i);
 }
 

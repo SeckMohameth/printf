@@ -1,5 +1,6 @@
 #ifndef _HOLBERTON_H_
 #define _HOLBERTON_H_
+#include <stdarg.h>
 
 /**
 * struct pairing - struct for pairing format to fuctions
