@@ -7,12 +7,15 @@
 * @a: the operator
 * @ptr: the fuction associated
 */
-struct pairing
+typedef struct pairing
 {
 	char a;
 	void (*ptr)();
-};
+}pair;
 
 int _printf(const char *format, ...);
+void print_c(va_list arg);
+void print_s(va_list arg);
+int printy(const char *format, va_list arg);
 
 #endif
