@@ -11,7 +11,7 @@ typedef struct pairing
 {
 	char a;
 	int (*ptr)();
-}pair;
+} pair;
 
 int _printf(const char *format, ...);
 int print_c(va_list arg);
