@@ -81,10 +81,6 @@ int printy(const char *format, va_list arg)
 		i++;
 	}
 	i--;
-	if (i <= 0)
-	{
-		return (1);
-	}
 	return (i);
 }
 
@@ -104,6 +100,5 @@ int _printf(const char *format, ...)
 		return (-1);
 	i = printy(format, arg);
 	va_end(arg);
-	printf("%d", i);
 	return (i);
 }
