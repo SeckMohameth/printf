@@ -30,11 +30,11 @@ int print_s(va_list arg)
 	int n = 0;
 	char *a = va_arg(arg, char *);
 
+	write(1, a, 1);
 	while (a[n] != '\0')
 	{
 		n++;
 	}
-	write(1, a, n);
 	return (n);
 }
 
