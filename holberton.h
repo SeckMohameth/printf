@@ -14,6 +14,7 @@ typedef struct pairing
 	int (*ptr)();
 } pair;
 
+int print_%(void);
 int _printf(const char *format, ...);
 int print_c(va_list arg);
 int print_s(va_list arg);

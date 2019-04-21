@@ -30,12 +30,23 @@ int print_s(va_list arg)
 	int n = 0;
 	char *a = va_arg(arg, char *);
 
-	write(1, a, 1);
-	while (a[n] != '\0')
+	while (*a != '\0')
 	{
+		write(1, a, 1);
 		n++;
+		a++;
 	}
 	return (n);
+}
+
+/**
+* print_p - prints %
+* Return: 1
+*/
+int print_p(void)
+{
+	write(1, "%", 2);
+	return (1);
 }
 
 /**
@@ -52,28 +63,24 @@ int printy(const char *format, va_list arg)
 	pair pai[] = {
 		{'c', print_c},
 		{'s', print_s},
+		{'%', print_p},
 		{'\0', NULL}
 	};
 
 	while (format != NULL && *format != '\0')
 	{
+		add = 0;
 		n = 0;
 		if (*format == '%')
 		{
 			format++;
-			i++;
-			if (*format == '%')
-			{
-				i--;
-			}
 			while (pai[n].a != '\0')
 			{
 				if (*format == pai[n].a)
 				{
 					format++;
-					i++;
 					add = pai[n].ptr(arg);
-					i = (add + i - 3);
+					i = i + add;
 				}
 				n++;
 			}
