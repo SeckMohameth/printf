@@ -22,12 +22,13 @@ int main(void)
 	//_printf("%");
 	//_printf("SS");
 	//write(1, "%\n", 2);
-	
-	len = _printf("%s%c%c%c%s%%%s%c", "Loading ", '.', '.', '.', " 99", " Please wait", '\n');
-	len2 = printf("%s%c%c%c%s%%%s%c", "Loading ", '.', '.', '.', " 99", " Please wait", '\n');
-	//len = _printf("%%\n");
-	//len2 = printf("%%\n");
 
+	//len = _printf("%s%c%c%c%s%%%s%c", "Loading ", '.', '.', '.', " 99", " Please wait", '\n');
+	//len2 = printf("%s%c%c%c%s%%%s%c", "Loading ", '.', '.', '.', " 99", " Please wait", '\n');
+	len = _printf("NULL");
+	len2 = printf("NULL\n");
+	//len2 = printf("Complete the sentence: You %s nothing, Jon Snow.\n", (char *)0);
+	//len = _printf("Complete the sentence: You %s nothing, Jon Snow.\n", (char *)0);
 	printf("Length:[%d, %i]\n", len, len2);
 	fflush(stdout);
 	//if (len != len2)

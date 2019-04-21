@@ -109,6 +109,8 @@ int _printf(const char *format, ...)
 	va_list arg;
 	int i;
 
+	if (format == NULL)
+		return (0);
 	va_start(arg, format);
 	if (format == NULL && *format == '\0')
 		return (-1);
