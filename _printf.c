@@ -69,7 +69,6 @@ int printy(const char *format, va_list arg)
 
 	while (format != NULL && format[c] != '\0')
 	{
-		//add = 0;
 		n = 0;
 		if (format[c] == '%')
 		{
@@ -78,7 +77,6 @@ int printy(const char *format, va_list arg)
 			{
 				if (format[c] == pai[n].a)
 				{
-					//c++;
 					add = pai[n].ptr(arg);
 					i = i + add;
 				}
@@ -90,8 +88,6 @@ int printy(const char *format, va_list arg)
 			i++;
 			write(1, &format[c], 1);
 		}
-		//write(1, &format[c], 1);
-		//i++;
 		c++;
 	}
 	return (i);
