@@ -58,7 +58,7 @@ int print_p(void)
 */
 int printy(const char *format, va_list arg)
 {
-	int i = 0, n = 0, add = 0;
+	int i = 0, n = 0, add = 0, c = 0;
 
 	pair pai[] = {
 		{'c', print_c},
@@ -67,27 +67,32 @@ int printy(const char *format, va_list arg)
 		{'\0', NULL}
 	};
 
-	while (format != NULL && *format != '\0')
+	while (format != NULL && format[c] != '\0')
 	{
-		add = 0;
+		//add = 0;
 		n = 0;
-		if (*format == '%')
+		if (format[c] == '%')
 		{
-			format++;
+			c++;
 			while (pai[n].a != '\0')
 			{
-				if (*format == pai[n].a)
+				if (format[c] == pai[n].a)
 				{
-					format++;
+					//c++;
 					add = pai[n].ptr(arg);
 					i = i + add;
 				}
 				n++;
 			}
 		}
-		write(1, format, sizeof(char));
-		format++;
-		i++;
+		else
+		{
+			i++;
+			write(1, &format[c], 1);
+		}
+		//write(1, &format[c], 1);
+		//i++;
+		c++;
 	}
 	return (i);
 }
