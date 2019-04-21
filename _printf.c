@@ -30,6 +30,11 @@ int print_s(va_list arg)
 	int n = 0;
 	char *a = va_arg(arg, char *);
 
+	if (a == NULL)
+	{
+		write(1, "(null)", 6);
+		return (0);
+	}
 	while (*a != '\0')
 	{
 		write(1, a, 1);
