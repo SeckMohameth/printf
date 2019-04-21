@@ -50,8 +50,8 @@ int print_s(va_list arg)
 */
 int print_p(void)
 {
-	write(1, "%", 2);
-	return (0);
+	write(1, "%", 1);
+	return (1);
 }
 
 /**
