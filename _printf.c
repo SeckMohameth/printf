@@ -75,6 +75,7 @@ int printy(const char *format, va_list arg)
 	while (format != NULL && format[c] != '\0')
 	{
 		n = 0;
+		add = 0;
 		if (format[c] == '%')
 		{
 			c++;
