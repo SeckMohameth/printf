@@ -22,10 +22,10 @@ int main(void)
 	//_printf("SS");
 	//write(1, "%\n", 2);
 	
-	len = _printf("%s%c%c%c%s%%%s%c", "Loading ", '.', '.', '.', " 99", " Please wait", '\n');
-	len2 = printf("%s%c%c%c%s%%%s%c", "Loading ", '.', '.', '.', " 99", " Please wait", '\n');
-	//len = _printf("p %% %% %% %s %c\n", str, 'a');
-	//len2 = printf("l %% %% %% %s %c\n", str, 'a');
+	//len = _printf("%s%c%c%c%s%%%s%c", "Loading ", '.', '.', '.', " 99", " Please wait", '\n');
+	//len2 = printf("%s%c%c%c%s%%%s%c", "Loading ", '.', '.', '.', " 99", " Please wait", '\n');
+	len = _printf("p %% %% %% %s %c\n", str, 'a');
+	len2 = printf("l %% %% %% %s %c\n", str, 'a');
 
 	printf("Length:[%d, %i]\n", len, len2);
 	fflush(stdout);

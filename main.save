@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include "holberton.h"
 
+
 /**
  * main - Entry point
  *
@@ -12,7 +13,7 @@ int main(void)
 {
     int len;
     int len2;
-	char *str = "hello world";
+//	char *str = "hello world";
     //len = _printf("Let's try to printf a simple sentence.\n");
     //len2 = printf("Let's try to printf a simple sentence.\n");
     //ui = (unsigned int)INT_MAX + 1024;
@@ -21,12 +22,11 @@ int main(void)
 	//_printf("%");
 	//_printf("SS");
 	//write(1, "%\n", 2);
-
 	
-	//len = _printf("%s%c%c%c%s%%%s%c", "Loading ", '.', '.', '.', " 99", " Please wait", '\n');
-	//len2 = printf("%s%c%c%c%s%%%s%c", "Loading ", '.', '.', '.', " 99", " Please wait", '\n');
-	len = _printf("p %% %% %% %s %c\n", str, 'a');
-	len2 = printf("l %% %% %% %s %c\n", str, 'a');
+	len = _printf("%s%c%c%c%s%%%s%c", "Loading ", '.', '.', '.', " 99", " Please wait", '\n');
+	len2 = printf("%s%c%c%c%s%%%s%c", "Loading ", '.', '.', '.', " 99", " Please wait", '\n');
+	//len = _printf("%%\n");
+	//len2 = printf("%%\n");
 
 	printf("Length:[%d, %i]\n", len, len2);
 	fflush(stdout);
