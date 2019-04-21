@@ -33,7 +33,7 @@ int print_s(va_list arg)
 	if (a == NULL)
 	{
 		write(1, "(null)", 6);
-		return (0);
+		return (-8);
 	}
 	while (*a != '\0')
 	{
